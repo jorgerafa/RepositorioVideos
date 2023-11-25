@@ -6,10 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    {% block content %}
+    <form action="{% url 'sign_in' %}" method="POST">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Sign_in">
     </form>
+    <a href="{% url 'register' %}">Register</a>
+    {% endblock %}
 </body>
 </html>

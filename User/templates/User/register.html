@@ -1,0 +1,14 @@
+{% extends 'User/sign_in.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<form action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+</form>
+<a href="{% url 'sign_in' %}">Sign in</a>
+
+{% endblock %}
