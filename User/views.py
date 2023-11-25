@@ -24,7 +24,7 @@ def sign_in(request):
                            })
         else:
             login(request, user)
-            return render('home')
+            return redirect('home')
     
     return render(request, "User/sign_in.html", {"form": AuthenticationForm})
 
@@ -46,5 +46,11 @@ def register(request):
                                   "error": "The user already exists"
                                 })
     return render(request, "User/register.html",{"form": UserCreationForm})
+
+def signout(request):
+    
+    logout(request)
+    
+    return redirect('home')
             
         
